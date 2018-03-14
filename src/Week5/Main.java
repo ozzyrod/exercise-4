@@ -23,8 +23,8 @@ public class Main {
 	    /*
 	     * Declare the variables needed
 	     */
-	    int    product_number = 0;
-	    int    product_quantity = 0;
+	    int    product_number;
+	    int    product_quantity;
 	    int    one_quantity = 0; // Product 1 quantity
 	    int    two_quantity = 0; // Product 2 quantity
 	    int    three_quantity = 0; // Product 3 quantity
@@ -56,8 +56,8 @@ public class Main {
 		    System.out.print( "Please enter a product number: " );
 		    product_number = input.nextInt();
 
-		    if ( product_number == 6 ) {
-			    allProducts( one_quantity, two_quantity, three_quantity, four_quantity, five_quantity );
+		    if ( product_number < 1 || product_number > 5 ) {
+			    returnAllProducts( one_quantity, two_quantity, three_quantity, four_quantity, five_quantity );
 			    break;
 		    }
 
@@ -87,13 +87,18 @@ public class Main {
 			    default:
 				    break;
 		    }
-	    } while ( product_number != 6 );
+	    } while ( product_number <= 5 && product_number >= 1 );
     }
 
     /*
      * Calculates and outputs all products
+     *  @param int one The number of product1.
+     *  @param int two The number of product2.
+     *  @param int three The number of product3.
+     *  @param int four The number of product4.
+     *  @param int five The number of product5.
      */
-    public static void allProducts( int one, int two, int three, int four, int five ) {
+    public static void returnAllProducts( int one, int two, int three, int four, int five ) {
 
 	    /*
 	     * Declare and assign the variables needed
@@ -115,16 +120,16 @@ public class Main {
 	    System.out.println( "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *" );
 	    System.out.println( "* Product             *  Quantity Sold  *             *   Total Sales *" );
 	    System.out.println( "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *" );
-	    System.out.printf( "* Product 1           *%12d     *             *     $%-4.2f    *%n", one, product_one_revenue );
+	    System.out.printf( "* Product 1           *%12d     *             *     $%-4.2f    *\n", one, product_one_revenue );
 	    System.out.println( "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *" );
-	    System.out.printf( "* Product 2           *%12d     *             *     $%-4.2f    *%n", two, product_two_revenue );
+	    System.out.printf( "* Product 2           *%12d     *             *     $%-4.2f    *\n", two, product_two_revenue );
 	    System.out.println( "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *" );
-	    System.out.printf( "* Product 3           *%12d     *             *     $%-4.2f    *%n", three, product_three_revenue );
+	    System.out.printf( "* Product 3           *%12d     *             *     $%-4.2f    *\n", three, product_three_revenue );
 	    System.out.println( "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *" );
-	    System.out.printf( "* Product 4           *%12d     *             *     $%-4.2f    *%n", four, product_four_revenue );
+	    System.out.printf( "* Product 4           *%12d     *             *     $%-4.2f    *\n", four, product_four_revenue );
 	    System.out.println( "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *" );
-	    System.out.printf( "* Product 5           *%12d     *             *     $%-4.2f    *%n", five, product_five_revenue );
+	    System.out.printf( "* Product 5           *%12d     *             *     $%-4.2f    *\n", five, product_five_revenue );
 	    System.out.println( "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *" );
-	    System.out.printf( "Your total revenue is $%4.2f", total );
+	    System.out.printf( "Your total revenue is $%.2f\n", total );
     }
 }
